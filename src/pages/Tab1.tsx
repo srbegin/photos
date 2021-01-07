@@ -1,10 +1,22 @@
 import React, {useState} from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, useIonViewWillEnter } from '@ionic/react';
+//import ExploreContainer from '../components/ExploreContainer';
 import firebase from '../Firebase';
 import './Tab1.css';
 
 const Tab1: React.FC = () => {
+
+  useIonViewWillEnter(async () => {
+
+
+
+    //build submission IDs array in state
+    //var ref = firebase.database().ref('subs');
+
+    await fetchData();
+
+    console.log("vidIDs useIonViewWillEnter: " + allVidIDs);
+  });
 
 
   async function fetchData() {
